@@ -5,21 +5,21 @@ import Icon from '../../components/Icon';
 const Header = () => {
   return (
     <View style={styles.container}>
-      <Icon
+      {/* <Icon
         from="materialIcons"
         name="menu"
         size={15}
         color="green"
         style={{paddingHorizontal: 10}}
-      />
+      /> */}
       <Image source={avlogopng} style={{width: 150, height: 40}} />
-      <Icon
+      {/* <Icon
         from={'materialIcons'}
-        name="bell"
+        name="home"
         size={15}
         color="green"
         style={{paddingHorizontal: 10}}
-      />
+      /> */}
     </View>
   );
 };
@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     paddingVertical: 5,
     height: 50,
-    backgroundColor: 'grey',
-    justifyContent: 'space-between',
+    backgroundColor: '#4c13a2',
+    justifyContent: 'center',
   },
 });

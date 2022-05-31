@@ -11,16 +11,15 @@ import {
   TouchableOpacity,
   Image,
 } from 'react-native';
-import {avPlane} from '../../assets/index';
+import {avPlane, avlogopng} from '../../assets/index';
 import React from 'react';
 import Header from '../../common/header';
 import {colors} from '../../constants/colors';
-import Icon from '../../components/Icon';
 import {useNavigation} from '@react-navigation/native';
-const Login = () => {
+const Signup = () => {
   const navigation = useNavigation();
   return (
-    <>
+    <ScrollView style={{flex: 1}}>
       <Header />
       <ImageBackground
         source={avPlane}
@@ -37,10 +36,10 @@ const Login = () => {
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
         style={styles.container}>
         <View style={{marginTop: 50}}>
-          <Text style={{color: colors.offWhite, fontSize: 30}}>Login</Text>
+          <Text style={{color: colors.offWhite, fontSize: 30}}>Join Us</Text>
 
           <TextInput
-            placeholder="Enter email"
+            placeholder="Add email"
             placeholderTextColor={colors.avBlue}
             style={styles.input}
           />
@@ -49,42 +48,50 @@ const Login = () => {
             placeholderTextColor={colors.avBlue}
             style={styles.input}
           />
+          <TextInput
+            placeholder="Re enter Password"
+            placeholderTextColor={colors.avBlue}
+            style={styles.input}
+          />
           <TouchableOpacity
-            style={{marginTop: 10}}
-            onPress={() => navigation.navigate('Signup')}>
-            <Text style={{color: colors.offWhite, fontSize: 15}}>
-              Not a member?
-            </Text>
-          </TouchableOpacity>
-          {/* <View style={{marginTop: 10}}>
-            <Button title="Login" color={colors.avTealGreen} />
-          </View> */}
-          <TouchableOpacity
-            onPress={() => navigation.navigate('HomeStack')}
             style={{
               marginTop: 10,
-              width: '100%',
-              backgroundColor: colors.avTealGreen,
-              // height: 40,
+              flexDirection: 'row',
+              justifyContent: 'center',
               alignItems: 'center',
-              padding: 5,
+              borderWidth: 2,
+              borderColor: colors.avTealGreen,
               borderRadius: 10,
+              paddingVertical: 5,
             }}>
-            <Icon
-              from={'ionicons'}
-              name="ios-airplane-outline"
-              size={35}
-              color="black"
-              style={{paddingHorizontal: 10}}
+            <Text
+              style={{
+                color: 'white',
+                fontSize: 27,
+                fontWeight: '700',
+                // textAlign: 'center',
+              }}>
+              Join
+            </Text>
+            <Image
+              source={avlogopng}
+              style={{width: 100, height: 25, marginLeft: 10}}
             />
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={{marginTop: 10}}
+            onPress={() => navigation.navigate('Login')}>
+            <Text style={{color: colors.offWhite, fontSize: 15}}>
+              Already a member?
+            </Text>
           </TouchableOpacity>
         </View>
       </KeyboardAvoidingView>
-    </>
+    </ScrollView>
   );
 };
 
-export default Login;
+export default Signup;
 
 const styles = StyleSheet.create({
   container: {
@@ -97,7 +104,7 @@ const styles = StyleSheet.create({
   },
   input: {
     borderRadius: 10,
-    marginTop: 10,
+    marginTop: 5,
     borderWidth: 1,
     borderColor: 'black',
     backgroundColor: colors.offWhite,

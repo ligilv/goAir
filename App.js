@@ -20,12 +20,11 @@ import FlashMessage from 'react-native-flash-message';
 import Icon from './src/components/Icon';
 import {NavigationContainer} from '@react-navigation/native';
 import Login from './src/screens/login';
+import Signup from './src/screens/signup';
+import RootSTack from './src/navigation';
 const App = () => {
-  const isDarkMode = useColorScheme() === 'dark';
-
   return (
-    <SafeAreaView>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
+    <SafeAreaView style={{flex: 1}}>
       <NavigationContainer>
         {/* <Icon
           from={'antDesign'}
@@ -34,9 +33,11 @@ const App = () => {
           color="green"
           style={{paddingHorizontal: 10}}
         /> */}
-        <Login />
+        <RootSTack />
         <FlashMessage position="top" />
       </NavigationContainer>
+      {/* <Login /> */}
+      {/* <Signup /> */}
     </SafeAreaView>
   );
 };
