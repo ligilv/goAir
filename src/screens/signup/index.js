@@ -12,14 +12,22 @@ import {
   Image,
 } from 'react-native';
 import {avPlane, avlogopng} from '../../assets/index';
-import React from 'react';
+import React ,{useState, useEffect}from 'react';
 import Header from '../../common/header';
 import {colors} from '../../constants/colors';
 import {useNavigation} from '@react-navigation/native';
+import Loader from '../../components/loader';
 const Signup = () => {
+  const [modalOpen, setModal]=useState(true)
   const navigation = useNavigation();
+  useEffect(()=>{
+    setTimeout(()=>{
+      setModal((prev)=>!prev)
+    },2000)
+  },[])
   return (
     <ScrollView style={{flex: 1}}>
+     <Loader isLoading={modalOpen}/>
       <Header />
       <ImageBackground
         source={avPlane}

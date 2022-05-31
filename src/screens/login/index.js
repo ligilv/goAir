@@ -12,15 +12,23 @@ import {
   Image,
 } from 'react-native';
 import {avPlane} from '../../assets/index';
-import React from 'react';
+import React ,{useState, useEffect}from 'react';
 import Header from '../../common/header';
 import {colors} from '../../constants/colors';
 import Icon from '../../components/Icon';
 import {useNavigation} from '@react-navigation/native';
+import Loader from '../../components/loader';
 const Login = () => {
   const navigation = useNavigation();
+  const [modalOpen, setModal]=useState(true)
+  useEffect(()=>{
+    setTimeout(()=>{
+      setModal((prev)=>!prev)
+    },2000)
+  },[])
   return (
-    <>
+    <>     
+    <Loader isLoading={modalOpen}/>
       <Header />
       <ImageBackground
         source={avPlane}

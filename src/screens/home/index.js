@@ -1,30 +1,32 @@
-import {View, Text, Image, Button} from 'react-native';
+import {View, Text, Image, Button, ScrollView} from 'react-native';
 import React ,{useEffect, useState}from 'react';
 import {cplane, rplane} from '../../assets/index';
 import {colors} from '../../constants/colors';
 import Loader from '../../components/loader';
+import Header from '../../common/header';
 const Home = () => {
   const [modalOpen, setModal]=useState(true)
-  // useEffect(()=>{
-  //   setInterval(()=>{
-  //     setModal((prev)=>!prev)
-  //   },3000)
-  // },[modalOpen])
+  useEffect(()=>{
+    setTimeout(()=>{
+      setModal((prev)=>!prev)
+    },2000)
+  },[])
   return (
-    <View style={{flex: 1, backgroundColor: colors.avBlue}}>
+    <ScrollView style={{flex: 1, backgroundColor: colors.avBlue}}>
+    <Header />
     <Text>winefoew</Text>
     <Text>winefoew</Text>
    
     <Text>winefoew</Text>
     <Text>winefoew</Text>
     <Text>winefoew</Text>
-    <Button title='click' onPress={()=>setModal(!modalOpen)}/>
+    
      <Loader isLoading={modalOpen}/>
       {/* <Image
         source={rplane}
         style={{height: 200, width: 200, marginLeft: 200}}
       /> */}
-    </View>
+    </ScrollView>
   );
 };
 
