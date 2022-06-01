@@ -11,23 +11,23 @@ import {
   TouchableOpacity,
   Image,
 } from 'react-native';
-import {avPlane, avlogopng} from '../../assets/index';
-import React ,{useState, useEffect}from 'react';
+import {avPlane, avlogopng, logo} from '../../assets/index';
+import React, {useState, useEffect} from 'react';
 import Header from '../../common/header';
 import {colors} from '../../constants/colors';
 import {useNavigation} from '@react-navigation/native';
 import Loader from '../../components/loader';
 const Signup = () => {
-  const [modalOpen, setModal]=useState(true)
+  const [modalOpen, setModal] = useState(true);
   const navigation = useNavigation();
-  useEffect(()=>{
-    setTimeout(()=>{
-      setModal((prev)=>!prev)
-    },2000)
-  },[])
+  useEffect(() => {
+    setTimeout(() => {
+      setModal(prev => !prev);
+    }, 2000);
+  }, []);
   return (
     <ScrollView style={{flex: 1}}>
-     <Loader isLoading={modalOpen}/>
+      <Loader isLoading={modalOpen} />
       <Header />
       <ImageBackground
         source={avPlane}
@@ -62,6 +62,7 @@ const Signup = () => {
             style={styles.input}
           />
           <TouchableOpacity
+            onPress={() => navigation.navigate('HomeStack')}
             style={{
               marginTop: 10,
               flexDirection: 'row',
@@ -79,12 +80,9 @@ const Signup = () => {
                 fontWeight: '700',
                 // textAlign: 'center',
               }}>
-              Join
+              Join avelo
             </Text>
-            <Image
-              source={avlogopng}
-              style={{width: 100, height: 25, marginLeft: 10}}
-            />
+            <Image source={logo} style={{width: 50, height: 30}} />
           </TouchableOpacity>
           <TouchableOpacity
             style={{marginTop: 10}}

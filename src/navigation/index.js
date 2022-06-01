@@ -32,7 +32,7 @@ const RootSTack = () => {
     <Stack.Navigator
       screenOptions={{headerShown: false}}
       initialRouteName="Auth">
-      <Stack.Screen name="Auth" component={AuthStack} />
+      {/* <Stack.Screen name="Auth" component={AuthStack} /> */}
       <Stack.Screen name="HomeStack" component={MainStack} />
     </Stack.Navigator>
   );
