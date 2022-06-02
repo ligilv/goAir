@@ -19,7 +19,6 @@ import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
 import Zocial from 'react-native-vector-icons/Zocial';
 
 const Icon = ({from, ...rest}) => {
-  console.log({...rest});
   switch (from) {
     case 'fontAwesome':
       // size={size} color="#900

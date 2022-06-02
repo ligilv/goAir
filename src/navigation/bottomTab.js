@@ -3,14 +3,14 @@ import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Icon from '../components/Icon';
 import Profile from '../screens/profile';
-import Settings from '../screens/settings';
+import BookFlight from '../screens/bookflight';
 import Home from '../screens/home';
 import {colors} from '../constants/colors';
 const BottomTab = () => {
   const customTabBarStyle = {
-    activeTintColor: '#0091EA',
+    activeTintColor: colors.avBlue,
     inactiveTintColor: 'gray',
-    style: {backgroundColor: 'white'},
+    headerShown:false
   };
   const Tab = createBottomTabNavigator();
 
@@ -31,14 +31,14 @@ const BottomTab = () => {
       />
 
       <Tab.Screen
-        name="Settings"
+        name="Bookflight"
         options={{
           tabBarLabel: 'Fly',
           tabBarIcon: ({color}) => (
             <View
               style={{
                 bottom: 10,
-                backgroundColor: colors.avBlue,
+                backgroundColor: colors.offWhite,
 
                 // position: 'absolute',
                 // bottom: 0, // space from bottombar
@@ -47,19 +47,19 @@ const BottomTab = () => {
                 borderRadius: 50 / 2,
                 justifyContent: 'center',
                 alignItems: 'center',
-                borderColor: colors.avTealGreen,
-                borderWidth: 2,
+                borderColor: 'black',
+                borderWidth: 1,
               }}>
               <Icon
                 from="ionicons"
-                name="paper-plane"
+                name="airplane-sharp"
                 color={color}
                 size={35}
               />
             </View>
           ),
         }}
-        component={Settings}
+        component={BookFlight}
       />
       <Tab.Screen
         name="Profile"

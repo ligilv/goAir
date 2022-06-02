@@ -12,7 +12,6 @@ const Home = () => {
     setTimeout(() => {
       setModal(prev => !prev);
     }, 2000);
-    console.log(state);
   }, []);
   return (
     <ScrollView style={{flex: 1, backgroundColor: colors.avBlue}}>

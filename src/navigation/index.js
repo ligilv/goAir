@@ -4,7 +4,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import Login from '../screens/login';
 import Signup from '../screens/signup';
 import Home from '../screens/home';
-import Settings from '../screens/settings';
+import Settings from '../screens/bookflight';
 import Profile from '../screens/profile';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import BottomTab from './bottomTab';
@@ -14,7 +14,7 @@ const AuthStack = () => {
   return (
     <Stack.Navigator
       screenOptions={{headerShown: false}}
-      initialRouteName="Splash">
+      initialRouteName="Login">
       <Stack.Screen name="Splash" component={Splash} />
 
       <Stack.Screen name="Login" component={Login} />
@@ -35,15 +35,15 @@ const MainStack = () => {
 };
 const Tab = createBottomTabNavigator();
 
-function MyTabs() {
-  return (
-    <Tab.Navigator screenOptions={{headerShown: false}}>
-      <Tab.Screen name="Home" component={MainStack} />
-      <Tab.Screen name="Settings" component={Settings} />
-      <Tab.Screen name="Profile" component={Profile} />
-    </Tab.Navigator>
-  );
-}
+// function MyTabs() {
+//   return (
+//     <Tab.Navigator screenOptions={{headerShown: false}}>
+//       <Tab.Screen name="Home" component={MainStack} />
+//       <Tab.Screen name="Settings" component={Settings} />
+//       <Tab.Screen name="Profile" component={Profile} />
+//     </Tab.Navigator>
+//   );
+// }
 const RootSTack = () => {
   const Stack = createNativeStackNavigator();
   return (
@@ -51,7 +51,7 @@ const RootSTack = () => {
       screenOptions={{headerShown: false}}
       initialRouteName="Auth">
       <Stack.Screen name="Auth" component={AuthStack} />
-      <Stack.Screen name="Mytab" component={BottomTab} />
+      <Stack.Screen name="HomeStack" component={BottomTab} />
     </Stack.Navigator>
   );
 };
