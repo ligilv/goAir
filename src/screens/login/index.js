@@ -18,9 +18,10 @@ import {colors} from '../../constants/colors';
 import Icon from '../../components/Icon';
 import {useNavigation} from '@react-navigation/native';
 import Loader from '../../components/loader';
+import CModal from '../../components/modal';
 const Login = () => {
   const navigation = useNavigation();
-
+const [modalState, setModalState]=useState(false)
   return (
     <>
       <Header />
@@ -62,7 +63,7 @@ const Login = () => {
             <Button title="Login" color={colors.avTealGreen} />
           </View> */}
           <TouchableOpacity
-            onPress={() => navigation.navigate('HomeStack')}
+            onPress={() => navigation.replace('HomeStack')}
             style={{
               marginTop: 10,
               width: '100%',

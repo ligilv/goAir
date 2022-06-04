@@ -62,7 +62,7 @@ const Signup = () => {
             style={styles.input}
           />
           <TouchableOpacity
-            onPress={() => navigation.navigate('HomeStack')}
+           onPress={() => navigation.replace('HomeStack')}
             style={{
               marginTop: 10,
               flexDirection: 'row',

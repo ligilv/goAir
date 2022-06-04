@@ -1,9 +1,16 @@
 import {StyleSheet, Text, View, Image, ActivityIndicator} from 'react-native';
-import React from 'react';
+import React, { useEffect } from 'react';
 import {avPlane, avlogopng} from '../../assets/index';
 import {colors} from '../../constants/colors';
-
+import { useNavigation } from '@react-navigation/native';
 const Splash = () => {
+  const navigation=useNavigation()
+  useEffect(()=>{
+    setTimeout(()=>{
+
+      navigation.replace('Login')
+    },2000)
+  },[])
   return (
     <View style={styles.container}>
       <Image source={avlogopng} style={styles.image} resizeMode={'contain'} />

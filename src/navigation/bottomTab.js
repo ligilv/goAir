@@ -16,10 +16,19 @@ const BottomTab = () => {
 
   return (
     <Tab.Navigator
-      screenOptions={{headerShown: false}}
+      screenOptions={{headerShown: false, 
+  tabBarActiveTintColor: "#4c13a2",
+  tabBarInactiveTintColor: "gray",
+  tabBarStyle: [
+    {
+      "display": "flex"
+    },
+    null
+  ]
+}}
       initialRouteName="Home"
       activeColor="#fff"
-      tabBarOptions={customTabBarStyle}
+      // tabBarOptions={customTabBarStyle}
       shifting="false">
       <Tab.Screen
         name="Home"

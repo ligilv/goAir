@@ -14,13 +14,14 @@ const Settings = () => {
       <Text style={styles.bookText}>Book flight</Text>
       <View
         style={{flexDirection: 'row', justifyContent: 'center', marginTop: 20}}>
-        <TouchableOpacity style={[styles.selectTypeButton]}>
-          <Text style={{color: 'white', fontWeight: '700'}}>One way</Text>
-        </TouchableOpacity>
         <TouchableOpacity
           style={[styles.selectTypeButton, {backgroundColor: 'grey'}]}>
-          <Text style={{fontWeight: '700'}}>Round trip</Text>
+          <Text style={{fontWeight: '700'}}>One Way</Text>
         </TouchableOpacity>
+        <TouchableOpacity style={[styles.selectTypeButton]}>
+          <Text style={{color: 'white', fontWeight: '700'}}>Round Trip</Text>
+        </TouchableOpacity>
+        
       </View>
       <View
         style={{
@@ -111,7 +112,7 @@ const styles = StyleSheet.create({
   bookText:{
     fontSize:25,
     fontWeight:'800',
-    paddingTop:20
+    paddingTop:10
   },
   selectTypeButton:{
 backgroundColor:colors.avBlue,
