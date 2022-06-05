@@ -4,8 +4,9 @@ import {  } from 'react-native-gesture-handler';
 import Icon from '../../components/Icon';
 import { colors } from '../../constants/colors';
 import Header from '../../common/header';
-
+import { useNavigation } from '@react-navigation/native';
 const Settings = () => {
+  const navigation=useNavigation()
   return (
     <View style={{flex:1}}>
     <Header/>
@@ -31,7 +32,7 @@ const Settings = () => {
           alignItems: 'center',
           marginTop: 25,
         }}>
-        <TouchableOpacity style={styles.selectDest}>
+        <TouchableOpacity style={styles.selectDest} onPress={()=>navigation.navigate('LocationModal')}>
           <Text style={{color: 'grey'}}>FROM</Text>
           <Text style={styles.destshotname}>Del</Text>
           <Text>Delhi</Text>
@@ -43,7 +44,7 @@ const Settings = () => {
           color={colors.avBlue}
           style={{paddingHorizontal: 10}}
         />
-        <TouchableOpacity style={styles.selectDest}>
+        <TouchableOpacity style={styles.selectDest} onPress={()=>navigation.navigate('LocationModal')}>
           <Text style={{color: 'grey'}}>TO</Text>
           <Text style={styles.destshotname}>Mum</Text>
           <Text>Mumbai</Text>

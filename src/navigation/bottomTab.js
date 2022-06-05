@@ -6,6 +6,19 @@ import Profile from '../screens/profile';
 import BookFlight from '../screens/bookflight';
 import Home from '../screens/home';
 import {colors} from '../constants/colors';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import LocationModal from '../components/locationModal';
+const BookingStack=()=>{
+  const Stack = createNativeStackNavigator();
+return(
+  <Stack.Navigator screenOptions={{headerShown:false}}>
+<Stack.Screen name="Booking" component={BookFlight}/>
+<Stack.Group screenOptions={{presentation:'modal'}}>
+  <Stack.Screen name="LocationModal" component={LocationModal}/>
+</Stack.Group>
+  </Stack.Navigator>
+)
+}
 const BottomTab = () => {
   const customTabBarStyle = {
     activeTintColor: colors.avBlue,
@@ -68,7 +81,7 @@ const BottomTab = () => {
             </View>
           ),
         }}
-        component={BookFlight}
+        component={BookingStack}
       />
       <Tab.Screen
         name="Profile"

@@ -22,6 +22,7 @@ import CModal from '../../components/modal';
 const Login = () => {
   const navigation = useNavigation();
 const [modalState, setModalState]=useState(false)
+
   return (
     <>
       <Header />
