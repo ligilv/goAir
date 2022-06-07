@@ -21,7 +21,7 @@ import Loader from '../../components/loader';
 import CModal from '../../components/modal';
 const Login = () => {
   const navigation = useNavigation();
-const [modalState, setModalState]=useState(false)
+  const [modalState, setModalState] = useState(false);
 
   return (
     <>
@@ -53,13 +53,6 @@ const [modalState, setModalState]=useState(false)
             placeholderTextColor={colors.avBlue}
             style={styles.input}
           />
-          <TouchableOpacity
-            style={{marginTop: 10}}
-            onPress={() => navigation.navigate('Signup')}>
-            <Text style={{color: colors.offWhite, fontSize: 15}}>
-              Not a member?
-            </Text>
-          </TouchableOpacity>
           {/* <View style={{marginTop: 10}}>
             <Button title="Login" color={colors.avTealGreen} />
           </View> */}
@@ -83,6 +76,13 @@ const [modalState, setModalState]=useState(false)
             />
           </TouchableOpacity>
         </View>
+        <TouchableOpacity
+          style={{marginTop: 10}}
+          onPress={() => navigation.navigate('Signup')}>
+          <Text style={{color: colors.offWhite, fontSize: 15}}>
+            Not a member?
+          </Text>
+        </TouchableOpacity>
       </KeyboardAvoidingView>
     </>
   );

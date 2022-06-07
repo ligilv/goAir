@@ -6,39 +6,45 @@ import Profile from '../screens/profile';
 import BookFlight from '../screens/bookflight';
 import Home from '../screens/home';
 import {colors} from '../constants/colors';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import LocationModal from '../components/locationModal';
-const BookingStack=()=>{
+
+const BookingStack = () => {
   const Stack = createNativeStackNavigator();
-return(
-  <Stack.Navigator screenOptions={{headerShown:false}}>
-<Stack.Screen name="Booking" component={BookFlight}/>
-<Stack.Group screenOptions={{presentation:'modal'}}>
-  <Stack.Screen name="LocationModal" component={LocationModal}/>
-</Stack.Group>
-  </Stack.Navigator>
-)
-}
+  return (
+    <Stack.Navigator screenOptions={{headerShown: false}}>
+      <Stack.Screen name="Booking" component={BookFlight} />
+      <Stack.Group
+        screenOptions={{
+          presentation: 'modal',
+        }}>
+        <Stack.Screen name="LocationModal" component={LocationModal} />
+      </Stack.Group>
+    </Stack.Navigator>
+  );
+};
 const BottomTab = () => {
   const customTabBarStyle = {
     activeTintColor: colors.avBlue,
     inactiveTintColor: 'gray',
-    headerShown:false
+    headerShown: false,
   };
   const Tab = createBottomTabNavigator();
 
   return (
     <Tab.Navigator
-      screenOptions={{headerShown: false, 
-  tabBarActiveTintColor: "#4c13a2",
-  tabBarInactiveTintColor: "gray",
-  tabBarStyle: [
-    {
-      "display": "flex"
-    },
-    null
-  ]
-}}
+      screenOptions={{
+        // tabBarHideOnKeyboard: true,
+        headerShown: false,
+        tabBarActiveTintColor: '#4c13a2',
+        tabBarInactiveTintColor: 'gray',
+        tabBarStyle: [
+          {
+            display: 'flex',
+          },
+          null,
+        ],
+      }}
       initialRouteName="Home"
       activeColor="#fff"
       // tabBarOptions={customTabBarStyle}
