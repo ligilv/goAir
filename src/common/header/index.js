@@ -2,6 +2,7 @@ import {StyleSheet, Text, View, Image} from 'react-native';
 import React from 'react';
 import {logo, avlogopng} from '../../assets';
 import Icon from '../../components/Icon';
+import { colors } from '../../constants/colors';
 const Header = () => {
   return (
     <View style={styles.container}>
@@ -12,7 +13,7 @@ const Header = () => {
         color="green"
         style={{paddingHorizontal: 10}}
       /> */}
-      <Image source={avlogopng} style={{width: 150, height: 40}} />
+      <Image source={avlogopng} style={{width: 120, height: 50,}} />
       {/* <Icon
         from={'materialIcons'}
         name="home"
@@ -29,9 +30,8 @@ export default Header;
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
-    paddingVertical: 5,
     height: 50,
-    backgroundColor: '#4c13a2',
+    backgroundColor: colors.avBlue,
     justifyContent: 'center',
   },
 });

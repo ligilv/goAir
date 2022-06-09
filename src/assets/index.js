@@ -1,6 +1,6 @@
-const logo = require('./avlogo.jpg');
-const avlogopng = require('./avlogopng.png');
-const avPlane = require('./avplane.webp');
+const logo = require('./avlogo.png');
+const avlogopng = logo
+const avPlane = require('./avplane.jpeg');
 const cplane = require('./cartoonplaneloader.gif');
 const rplane = require('./realplaneloader.gif');
 

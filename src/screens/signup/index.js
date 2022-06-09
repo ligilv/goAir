@@ -80,7 +80,7 @@ const Signup = () => {
                 fontWeight: '700',
                 // textAlign: 'center',
               }}>
-              Join avelo
+              Join Go air
             </Text>
             <Image source={logo} style={{width: 50, height: 30}} />
           </TouchableOpacity>
