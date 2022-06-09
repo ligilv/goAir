@@ -56,6 +56,7 @@ const Profile = () => {
           {data.map(item => {
             return (
               <View
+              key={item}
                 style={{
                   flexDirection: 'row',
                   justifyContent: 'space-between',

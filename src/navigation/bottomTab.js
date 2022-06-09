@@ -25,7 +25,7 @@ const BookingStack = () => {
 };
 const BottomTab = () => {
   const customTabBarStyle = {
-    activeTintColor: colors.avBlue,
+    activeTintColor: colors.avTealGreen,
     inactiveTintColor: 'gray',
     headerShown: false,
   };
@@ -36,7 +36,7 @@ const BottomTab = () => {
       screenOptions={{
         // tabBarHideOnKeyboard: true,
         headerShown: false,
-        tabBarActiveTintColor: '#4c13a2',
+        tabBarActiveTintColor: colors.avTealGreen,
         tabBarInactiveTintColor: 'gray',
         tabBarStyle: [
           {
@@ -45,7 +45,7 @@ const BottomTab = () => {
           null,
         ],
       }}
-      initialRouteName="Home"
+      initialRouteName="Bookflight"
       activeColor="#fff"
       // tabBarOptions={customTabBarStyle}
       shifting="false">

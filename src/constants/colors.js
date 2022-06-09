@@ -4,4 +4,5 @@ export const colors = {
   avYellow: '#ffcd00',
   avTealGreen: '#0ac2d2',
   avLightPurple: '#a180d5',
+  frostWhite:'#F5FEFD'
 };

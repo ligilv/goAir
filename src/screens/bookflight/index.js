@@ -4,7 +4,7 @@ import {
   ScrollView,
   View,
   TouchableOpacity,
-  Button,
+  Button,TextInput
 } from 'react-native';
 import React, {useState, useEffect} from 'react';
 import Icon from '../../components/Icon';
@@ -15,31 +15,30 @@ const Settings = () => {
   const route = useRoute();
   const navigation = useNavigation();
   const [destination, setDestination] = useState(null);
+  const [isOneWay, setIsOneWay]=useState(true)
   const [from, setFrom] = useState({
-    name: route?.params?.name,
-    code: route?.params?.name,
+
   });
   const [to, setTo] = useState({
-    name: route?.params?.name,
-    code: route?.params?.name,
   });
-  console.log(route.params);
   useEffect(() => {
-    if (route?.params?.type == 'from') {
-      setFrom({name: route?.params?.name, code: route?.params?.name});
+   console.log({to, from});
+    if (route.params?.type == 'from') {
+      setFrom({name: route?.params?.name, code: route?.params?.code, type:route?.params?.type});
     }
-    if (route?.params?.type == 'to') {
-      setTo({name: route?.params?.name, code: route?.params?.name});
+   if (route.params?.type == 'to') {
+      setTo({name: route?.params?.name, code: route?.params?.code,type:route?.params?.type });
     }
-  }, []);
+  }, [route.params?.key
+  ,route.params?.type
+  ]);
   return (
     <View style={{flex: 1}}>
       <Header />
 
       <ScrollView style={{padding: 20, backgroundColor: colors.offWhite}}>
         <Text style={styles.bookText}>Book flight</Text>
-        <Text>{route?.params?.code}</Text>
-        <Text>{route?.params?.name}</Text>
+
         <View
           style={{
             flexDirection: 'row',
@@ -48,11 +47,14 @@ const Settings = () => {
           }}>
           <Text>{destination}</Text>
           <TouchableOpacity
-            style={[styles.selectTypeButton, {backgroundColor: 'grey'}]}>
+          onPress={()=>setIsOneWay(true)}
+            style={[styles.selectTypeButton,{backgroundColor:isOneWay? colors.avTealGreen:'grey'} ]}>
             <Text style={{fontWeight: '700'}}>One Way</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={[styles.selectTypeButton]}>
-            <Text style={{color: 'white', fontWeight: '700'}}>Round Trip</Text>
+          <TouchableOpacity style={[styles.selectTypeButton, {backgroundColor:isOneWay? 'grey':colors.avTealGreen}]}
+         onPress={()=>setIsOneWay(false)} 
+          >
+            <Text style={{ fontWeight: '700'}}>Round Trip</Text>
           </TouchableOpacity>
         </View>
         <View
@@ -64,32 +66,33 @@ const Settings = () => {
             marginTop: 25,
           }}>
           <TouchableOpacity
-            style={styles.selectDest}
+            style={[styles.selectDest,]}
             onPress={() =>
               navigation.navigate('LocationModal', {type: 'from'})
             }>
-            <Text style={{color: 'grey'}}>FROM</Text>
+            <Text style={{color: 'grey', textAlign:isOneWay?'center':null}}>FROM</Text>
             <Text style={styles.destshotname}>
-              {route?.params?.type == 'from' ? from.name : 'Select'}
+              {from.type == 'from' ? from.code : 'Select'}
             </Text>
-            <Text>{route?.params?.type == 'from' ? from.code : 'Arrival'}</Text>
+            <Text>{from.type == 'from' ? from.name : 'Arrival'}</Text>
           </TouchableOpacity>
-          <Icon
+         { isOneWay?null:<Icon
             from={'fontisto'}
             name="arrow-swap"
             size={20}
-            color={colors.avBlue}
+            color={colors.avTealGreen}
             style={{paddingHorizontal: 10}}
-          />
+          />}
+          {isOneWay?null:
           <TouchableOpacity
             style={styles.selectDest}
             onPress={() => navigation.navigate('LocationModal', {type: 'to'})}>
             <Text style={{color: 'grey'}}>TO</Text>
             <Text style={styles.destshotname}>
-              {route?.params?.type == 'to' ? to.code : 'Select'}
+              {to.type == 'to' ? to.code : 'Select'}
             </Text>
-            <Text>{route?.params?.type == 'to' ? to.name : 'Destination'}</Text>
-          </TouchableOpacity>
+            <Text>{to.type == 'to' ? to.name : 'Destination'}</Text>
+          </TouchableOpacity>}
         </View>
         <View
           style={{
@@ -107,7 +110,7 @@ const Settings = () => {
             from={'fontisto'}
             name="date"
             size={20}
-            color={colors.avBlue}
+            color={colors.avTealGreen}
             style={{paddingHorizontal: 10}}
           />
           <TouchableOpacity style={styles.selectDest}>
@@ -131,7 +134,7 @@ const Settings = () => {
             from={'fontisto'}
             name="dollar"
             size={20}
-            color={colors.avBlue}
+            color={colors.avTealGreen}
             style={{paddingHorizontal: 10}}
           />
           <TouchableOpacity style={styles.selectDest}>
@@ -158,7 +161,7 @@ const styles = StyleSheet.create({
     paddingTop: 10,
   },
   selectTypeButton: {
-    backgroundColor: colors.avBlue,
+    backgroundColor: colors.avTealGreen,
     margin: 5,
     paddingHorizontal: 20,
     paddingVertical: 8,

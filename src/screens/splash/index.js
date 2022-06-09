@@ -1,4 +1,4 @@
-import {StyleSheet, Text, View, Image, ActivityIndicator} from 'react-native';
+import {StyleSheet, Text, View, Image, ActivityIndicator, ImageBackground} from 'react-native';
 import React, { useEffect } from 'react';
 import {avPlane, avlogopng} from '../../assets/index';
 import {colors} from '../../constants/colors';
@@ -12,24 +12,31 @@ const Splash = () => {
     },2000)
   },[])
   return (
-    <View style={styles.container}>
-      <Image source={avlogopng} style={styles.image} resizeMode={'contain'} />
-      <ActivityIndicator size="large" color={colors.avTealGreen} />
-    </View>
+      <ImageBackground
+        source={avPlane}
+       
+        style={{
+         
+          // backgroundColor: '#e6e6e6',
+          flex: 1,
+          // // backgroundColor: 'black',
+          // height: '100%',
+          paddingTop:250,
+          justifyContent: 'center',
+          alignItems:'center'
+
+        }}><View style={{backgroundColor:colors.avTealGreen, width:100, borderRadius:100/2}}>
+
+      <ActivityIndicator size="large" color={colors.frostWhite}/>
+        </View>
+
+        </ImageBackground>
   );
 };
 
 export default Splash;
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: colors.avBlue,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  image: {
-    width: 200,
-    height: 200,
-  },
+  
+  
 });

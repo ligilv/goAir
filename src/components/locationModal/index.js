@@ -41,10 +41,10 @@ const LocationModal = () => {
   };
   const onCheck = value => {
     setCheckedValue(value.name);
-    console.log(checkedValue);
+    // console.log(checkedValue);
     navigation.navigate('Booking', {
       type: route.params.type == 'from' ? 'from' : 'to',
-
+key:value.name,
       name: value.name,
       code: value.abbreviation,
     });

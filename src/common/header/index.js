@@ -6,21 +6,8 @@ import { colors } from '../../constants/colors';
 const Header = () => {
   return (
     <View style={styles.container}>
-      {/* <Icon
-        from="materialIcons"
-        name="menu"
-        size={15}
-        color="green"
-        style={{paddingHorizontal: 10}}
-      /> */}
-      <Image source={avlogopng} style={{width: 120, height: 50,}} />
-      {/* <Icon
-        from={'materialIcons'}
-        name="home"
-        size={15}
-        color="green"
-        style={{paddingHorizontal: 10}}
-      /> */}
+      
+<Text style={{fontSize:25, fontWeight:'800'}}>Go. Air.</Text>     
     </View>
   );
 };
@@ -31,7 +18,7 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     height: 50,
-    backgroundColor: colors.avBlue,
-    justifyContent: 'center',
-  },
+    backgroundColor: colors.avTealGreen,
+    justifyContent: 'center',  
+  alignItems:'center'},
 });

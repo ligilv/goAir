@@ -11,7 +11,7 @@ import {
   TouchableOpacity,
   Image,
 } from 'react-native';
-import {avPlane} from '../../assets/index';
+import {avPlane, avplaneV2} from '../../assets/index';
 import React, {useState, useEffect} from 'react';
 import Header from '../../common/header';
 import {colors} from '../../constants/colors';
@@ -25,37 +25,37 @@ const Login = () => {
 
   return (
     <>
-      <Header />
       <ImageBackground
         source={avPlane}
-        resizeMode="cover"
+       
         style={{
-          height: 220,
+         
           // backgroundColor: '#e6e6e6',
-          // // flex: 1,
+          flex: 1,
           // // backgroundColor: 'black',
           // height: '100%',
+          paddingTop:250,
           justifyContent: 'center',
-        }}></ImageBackground>
-      <KeyboardAvoidingView
+
+        }}>
+<KeyboardAvoidingView
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
         style={styles.container}>
-        <View style={{marginTop: 50}}>
-          <Text style={{color: colors.offWhite, fontSize: 30}}>Login</Text>
+        <View style={{paddingTop:20}}>
+          <Text style={{color: colors.offWhite, fontSize: 30, fontWeight:'800'}}>Login</Text>
 
           <TextInput
             placeholder="Enter email"
-            placeholderTextColor={colors.avBlue}
+            placeholderTextColor={colors.avLightPurple}
             style={styles.input}
+            
           />
           <TextInput
             placeholder="Enter Password"
-            placeholderTextColor={colors.avBlue}
+            placeholderTextColor={colors.avLightPurple}
             style={styles.input}
           />
-          {/* <View style={{marginTop: 10}}>
-            <Button title="Login" color={colors.avTealGreen} />
-          </View> */}
+          
           <TouchableOpacity
             onPress={() => navigation.replace('HomeStack')}
             style={{
@@ -79,11 +79,13 @@ const Login = () => {
         <TouchableOpacity
           style={{marginTop: 10}}
           onPress={() => navigation.navigate('Signup')}>
-          <Text style={{color: colors.offWhite, fontSize: 15}}>
+          <Text style={{color: 'white', fontSize: 15, fontWeight:'800', marginTop:10}}>
             Not a member?
           </Text>
         </TouchableOpacity>
       </KeyboardAvoidingView>
+        </ImageBackground>
+      
     </>
   );
 };
@@ -92,19 +94,23 @@ export default Login;
 
 const styles = StyleSheet.create({
   container: {
-    height: 490,
-    backgroundColor: colors.avBlue,
+    height: 300,
+    flex:1,
+    // backgroundColor: colors.avBlue,
     // justifyContent: 'center',
     paddingHorizontal: 10,
-    // justifyContent: 'center',
+    // opacity:0.8
+    
+    justifyContent: 'center',
     // alignItems: 'center',
   },
   input: {
     borderRadius: 10,
     marginTop: 10,
-    borderWidth: 1,
-    borderColor: 'black',
-    backgroundColor: colors.offWhite,
+    // borderWidth: 1,
+    // borderColor: 'black',
+    // opacity:0.3,
+    backgroundColor:colors.frostWhite,
     padding: 10,
   },
 });

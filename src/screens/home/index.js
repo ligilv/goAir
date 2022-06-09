@@ -14,10 +14,8 @@ const Home = () => {
   //   }, 2000);
   // }, []);
   return (
-    <ScrollView style={{flex: 1, backgroundColor: colors.avBlue}}>
+    <ScrollView style={{flex: 1,}}>
       <Header />
-      <Text>winefoew</Text>
-      <Text>winefoew</Text>
 
       {/* <Loader isLoading={modalOpen} /> */}
       {/* <Image
