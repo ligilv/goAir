@@ -7,21 +7,39 @@ import {
   Button,
 } from 'react-native';
 import React, {useState, useEffect} from 'react';
-import {} from 'react-native-gesture-handler';
 import Icon from '../../components/Icon';
 import {colors} from '../../constants/colors';
 import Header from '../../common/header';
-import {useNavigation} from '@react-navigation/native';
+import {useNavigation, useRoute} from '@react-navigation/native';
 const Settings = () => {
+  const route = useRoute();
   const navigation = useNavigation();
   const [destination, setDestination] = useState(null);
-  console.log(destination);
+  const [from, setFrom] = useState({
+    name: route?.params?.name,
+    code: route?.params?.name,
+  });
+  const [to, setTo] = useState({
+    name: route?.params?.name,
+    code: route?.params?.name,
+  });
+  console.log(route.params);
+  useEffect(() => {
+    if (route?.params?.type == 'from') {
+      setFrom({name: route?.params?.name, code: route?.params?.name});
+    }
+    if (route?.params?.type == 'to') {
+      setTo({name: route?.params?.name, code: route?.params?.name});
+    }
+  }, []);
   return (
     <View style={{flex: 1}}>
       <Header />
 
       <ScrollView style={{padding: 20, backgroundColor: colors.offWhite}}>
         <Text style={styles.bookText}>Book flight</Text>
+        <Text>{route?.params?.code}</Text>
+        <Text>{route?.params?.name}</Text>
         <View
           style={{
             flexDirection: 'row',
@@ -48,14 +66,13 @@ const Settings = () => {
           <TouchableOpacity
             style={styles.selectDest}
             onPress={() =>
-              navigation.navigate('LocationModal', {
-                destination: destination,
-                setDestination,
-              })
+              navigation.navigate('LocationModal', {type: 'from'})
             }>
             <Text style={{color: 'grey'}}>FROM</Text>
-            <Text style={styles.destshotname}>Del</Text>
-            <Text>Delhi</Text>
+            <Text style={styles.destshotname}>
+              {route?.params?.type == 'from' ? from.name : 'Select'}
+            </Text>
+            <Text>{route?.params?.type == 'from' ? from.code : 'Arrival'}</Text>
           </TouchableOpacity>
           <Icon
             from={'fontisto'}
@@ -66,10 +83,12 @@ const Settings = () => {
           />
           <TouchableOpacity
             style={styles.selectDest}
-            onPress={() => navigation.navigate('LocationModal')}>
+            onPress={() => navigation.navigate('LocationModal', {type: 'to'})}>
             <Text style={{color: 'grey'}}>TO</Text>
-            <Text style={styles.destshotname}>Mum</Text>
-            <Text>Mumbai</Text>
+            <Text style={styles.destshotname}>
+              {route?.params?.type == 'to' ? to.code : 'Select'}
+            </Text>
+            <Text>{route?.params?.type == 'to' ? to.name : 'Destination'}</Text>
           </TouchableOpacity>
         </View>
         <View

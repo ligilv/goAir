@@ -13,18 +13,12 @@ import {data} from './mock';
 import {useNavigation, useRoute} from '@react-navigation/native';
 const LocationModal = () => {
   const route = useRoute();
-  const [checkedValue, setCheckedValue] = useState(route.params.destination);
+  const [checkedValue, setCheckedValue] = useState('');
   const [dropdownData, setDropdownData] = useState(data);
   const [filteredData, setFilteredDataSource] = useState(dropdownData);
   const navigation = useNavigation();
   const [search, setSearch] = useState('');
-  // const searchText = v => {
-  //   setSearch(v);
-  //   setDropdownData(dropdownData.filter(item => item.name == v));
-  //   console.log(dropdownData);
 
-  // };
-  console.log('Route', route.params.destination);
   const searchText = text => {
     // Check if searched text is not blank
     if (text) {
@@ -46,15 +40,22 @@ const LocationModal = () => {
     }
   };
   const onCheck = value => {
-    setCheckedValue(value);
+    setCheckedValue(value.name);
     console.log(checkedValue);
-    route.params.setDestination(checkedValue);
-    navigation.goBack();
+    navigation.navigate('Booking', {
+      type: route.params.type == 'from' ? 'from' : 'to',
+
+      name: value.name,
+      code: value.abbreviation,
+    });
   };
   return (
     <View style={{flex: 1, backgroundColor: colors.offWhite}}>
       <View style={{paddingHorizontal: 25, paddingVertical: 30}}>
-        <Text style={{fontSize: 25, fontWeight: '500'}}>Select Airport</Text>
+        <Text style={{fontSize: 25, fontWeight: '500'}}>
+          Select {route.params.type == 'from' ? 'Destination' : 'Arrival'}{' '}
+          Airport
+        </Text>
         <View
           style={{
             borderWidth: 1,
@@ -90,7 +91,7 @@ const LocationModal = () => {
                   borderColor: checkedValue == item.name ? 'green' : null,
                   borderRadius: 10,
                 }}
-                onPress={() => onCheck(item.name)}>
+                onPress={() => onCheck(item)}>
                 <Text
                   style={{
                     fontSize: 15,

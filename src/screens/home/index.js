@@ -8,18 +8,18 @@ import {useSelector} from 'react-redux';
 const Home = () => {
   const state = useSelector(state => state);
   const [modalOpen, setModal] = useState(true);
-  useEffect(() => {
-    setTimeout(() => {
-      setModal(prev => !prev);
-    }, 2000);
-  }, []);
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     setModal(prev => !prev);
+  //   }, 2000);
+  // }, []);
   return (
     <ScrollView style={{flex: 1, backgroundColor: colors.avBlue}}>
       <Header />
       <Text>winefoew</Text>
       <Text>winefoew</Text>
 
-      <Loader isLoading={modalOpen} />
+      {/* <Loader isLoading={modalOpen} /> */}
       {/* <Image
         source={rplane}
         style={{height: 200, width: 200, marginLeft: 200}}
