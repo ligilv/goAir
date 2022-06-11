@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "656445648616",
+    "project_id": "goair-31f70",
+    "storage_bucket": "goair-31f70.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:656445648616:android:9ede9659d1ebe0b4c6235d",
+        "android_client_info": {
+          "package_name": "com.goair"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "656445648616-bqhm95bos0agg56rtl0d4a95b085786u.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.goair",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "656445648616-mesm4cfl253l24g5hb71uvjljvk70gnq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB0zxFNOzBa8Gp32jfH_E-oc6EP46e1XUg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "656445648616-mesm4cfl253l24g5hb71uvjljvk70gnq.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "656445648616-p3kf333ku87te2f80jclfmkh0m7o0ror.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "org.reactjs.native.example.goair"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -32,10 +32,7 @@ const Signup = () => {
        
         style={{
          
-          // backgroundColor: '#e6e6e6',
           flex: 1,
-          // // backgroundColor: 'black',
-          // height: '100%',
           paddingTop:250,
           justifyContent: 'center',
 

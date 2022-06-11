@@ -14,16 +14,23 @@ import {
 import {avPlane, avplaneV2} from '../../assets/index';
 import React, {useState, useEffect} from 'react';
 import Header from '../../common/header';
-import {colors} from '../../constants/colors';
+import {colors} from '../../constants/colors';  
 import Icon from '../../components/Icon';
 import {useNavigation} from '@react-navigation/native';
 import Loader from '../../components/loader';
 import CModal from '../../components/modal';
+import {
+  GoogleSigninButton,
+  statusCodes,
+  GoogleSignin
+} from '@react-native-google-signin/google-signin';
+import { GoogleLogin } from '../../utils/socialmedia';
 const Login = () => {
   const navigation = useNavigation();
   const [modalState, setModalState] = useState(false);
 
   return (
+    // org.reactjs.native.example.goair
     <>
       <ImageBackground
         source={avPlane}
@@ -76,6 +83,15 @@ const Login = () => {
             />
           </TouchableOpacity>
         </View>
+        <View style={{alignItems:'center', paddingTop:20}}>
+
+        <GoogleSigninButton
+  style={{ width: 192, height: 48, }}
+  size={GoogleSigninButton.Size.Wide}
+  color={GoogleSigninButton.Color.Light}
+  onPress={()=>GoogleLogin()}
+/>
+        </View>
         <TouchableOpacity
           style={{marginTop: 10}}
           onPress={() => navigation.navigate('Signup')}>
@@ -96,20 +112,15 @@ const styles = StyleSheet.create({
   container: {
     height: 300,
     flex:1,
-    // backgroundColor: colors.avBlue,
-    // justifyContent: 'center',
+   
     paddingHorizontal: 10,
-    // opacity:0.8
     
     justifyContent: 'center',
-    // alignItems: 'center',
   },
   input: {
     borderRadius: 10,
     marginTop: 10,
-    // borderWidth: 1,
-    // borderColor: 'black',
-    // opacity:0.3,
+   
     backgroundColor:colors.frostWhite,
     padding: 10,
   },

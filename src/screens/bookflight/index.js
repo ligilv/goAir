@@ -106,17 +106,17 @@ const Settings = () => {
             <Text style={{color: 'grey'}}>DEPARTURE</Text>
             <Text style={styles.destshotname}>2 June, Thu</Text>
           </TouchableOpacity>
-          <Icon
+         { isOneWay?null :<Icon
             from={'fontisto'}
             name="date"
             size={20}
             color={colors.avTealGreen}
             style={{paddingHorizontal: 10}}
-          />
-          <TouchableOpacity style={styles.selectDest}>
+          />}
+        { isOneWay?null: <TouchableOpacity style={styles.selectDest}>
             <Text style={{color: 'grey'}}>RETURN</Text>
             <Text style={styles.destshotname}>2 June, Thu</Text>
-          </TouchableOpacity>
+          </TouchableOpacity>}
         </View>
         <View
           style={{

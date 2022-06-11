@@ -7,21 +7,11 @@ import Header from '../../common/header';
 import {useSelector} from 'react-redux';
 const Home = () => {
   const state = useSelector(state => state);
-  const [modalOpen, setModal] = useState(true);
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     setModal(prev => !prev);
-  //   }, 2000);
-  // }, []);
+ 
   return (
     <ScrollView style={{flex: 1,}}>
       <Header />
-
-      {/* <Loader isLoading={modalOpen} /> */}
-      {/* <Image
-        source={rplane}
-        style={{height: 200, width: 200, marginLeft: 200}}
-      /> */}
+<Button title='click me'/>
     </ScrollView>
   );
 };
